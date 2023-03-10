@@ -4,7 +4,6 @@ import {ethers} from "ethers"
 import {useContract} from "../hooks/use-contract"
 import {DRaffle} from "../../typechain-types"
 import {bindListener, Draw, getAccounts, noWinner} from "../hooks/contract-bindings"
-import {PaddedDiv} from "../components/PaddedDiv"
 
 type PastDrawsProps = {
     provider: ethers.providers.Web3Provider

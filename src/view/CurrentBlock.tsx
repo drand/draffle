@@ -10,8 +10,7 @@ export const CurrentBlock = (props: CurrentBlockProps) => {
 
     useEffect(() => {
         props.provider.on("block", (blockNumber) => {
-            console.log("block number")
-            console.log(blockNumber)
+            console.log(`block number: ${blockNumber.toString()}`)
             if (!!blockNumber) {
                 setBlock(blockNumber)
             }

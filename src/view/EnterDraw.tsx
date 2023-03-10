@@ -4,6 +4,8 @@ import {useEffect, useState} from "react"
 import {useContract} from "../hooks/use-contract"
 import {bindListener, bindScheduledListener} from "../hooks/contract-bindings"
 import {cutoffPeriodInBlocks, entryCost} from "../config"
+import {Button} from "../components/Button"
+import {LoadingSpinner} from "../components/LoadingSpinner"
 
 type EnterDrawProps = {
     provider: ethers.providers.Web3Provider
@@ -63,8 +65,8 @@ export const EnterDraw = (props: EnterDrawProps) => {
     }
 
     if (isLoading) {
-        return <div>Loading...</div>
+        return <LoadingSpinner/>
     }
 
-    return <button onClick={enterDraw}>Enter the next draw</button>
+    return <Button onClick={enterDraw} text={"Enter the next draw"}/>
 }

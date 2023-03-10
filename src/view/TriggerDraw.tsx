@@ -4,6 +4,8 @@ import {useEffect, useState} from "react"
 import {bindScheduledListener} from "../hooks/contract-bindings"
 import {useContract} from "../hooks/use-contract"
 import {txGasLimit} from "../config"
+import {Button} from "../components/Button"
+import {LoadingSpinner} from "../components/LoadingSpinner"
 
 type TriggerDrawProps = {
     provider: ethers.providers.Web3Provider
@@ -42,7 +44,7 @@ export const TriggerDraw = (props: TriggerDrawProps) => {
     }
 
     if (isLoading) {
-        return <div>Loading...</div>
+        return <LoadingSpinner/>
     }
 
     if (currentBlock < nextDraw - BigInt(1)) {
@@ -53,5 +55,5 @@ export const TriggerDraw = (props: TriggerDrawProps) => {
             </>
         )
     }
-    return <button onClick={triggerDraw}>Trigger draw</button>
+    return <Button onClick={triggerDraw} text={"Trigger draw"}/>
 }

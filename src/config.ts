@@ -2,9 +2,9 @@
  * This config file is shared between hardhat and the webapp to ensure that everything stays in parity
  */
 
-// this default key is a nonsense one from ganache, fear not :)
 import {ethers} from "ethers"
 
+// this default key is a nonsense one from ganache, fear not :)
 const PRIVATE_KEY = process.env.PRIVATE_KEY || "0x57f9fac1c563ae47f6e34fa0d0ffa4137ab51f6a80ff1cec13bcf57448f53131"
 
 // the address of the deployed smart contract - you will need to update this after running `npm run deploy`

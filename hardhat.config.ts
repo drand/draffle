@@ -1,5 +1,5 @@
 import {HardhatUserConfig, task} from "hardhat/config"
-import {defaultNetwork, networks, txGasLimit} from "./src/config"
+import {defaultNetwork, entryCost, networks, txGasLimit} from "./src/config"
 import {DRaffle} from "./typechain-types"
 import "@nomicfoundation/hardhat-toolbox"
 import "hardhat-deploy"
@@ -47,21 +47,7 @@ task("enter-draw", "enter the draw for a given address")
 
         const dRaffle = await ethers.getContractFactory("DRaffle", wallet)
         const dRaffleContract = await dRaffle.attach(contractAddr)
-        const tx = await dRaffleContract.enter({ value: ethers.utils.parseEther("0.005")})
-        await tx.wait(1)
-    })
-
-task("nonsense", "mine blocks easily while testing")
-    .addParam("contract", "The address of the draffle contract")
-    .setAction(async (taskArgs) => {
-        const contractAddr = taskArgs.contract
-        const account = network.config.accounts[0]
-
-        const wallet = new ethers.Wallet(account, ethers.provider)
-
-        const dRaffle = await ethers.getContractFactory("DRaffle", wallet)
-        const dRaffleContract = await dRaffle.attach(contractAddr)
-        const tx = await dRaffleContract.doNonsense()
+        const tx = await dRaffleContract.enter({value: entryCost})
         await tx.wait(1)
     })
 

@@ -8,6 +8,7 @@ export type Draw = {
 }
 export const noWinner = "no winner"
 
+// bindListener will listen for completed draws (both those with winners and those without), and call the associated callback
 export function bindListener(contract: DRaffle, onDraw: (draw: Draw) => void) {
     contract.on(contract.filters.Winner(), (block, winner, amount) => {
         onDraw({

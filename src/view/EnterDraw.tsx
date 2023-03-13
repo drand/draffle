@@ -29,10 +29,12 @@ export const EnterDraw = (props: EnterDrawProps) => {
             return
         }
 
+        // we reset the entered status when a draw is complete so that we can enter the next one
         bindListener(contract, (draw) => {
             setEntered(false)
         })
 
+        // we consume newly scheduled draws to orchestrate entering and to allow drawing of the winner
         bindScheduledListener(contract, (nextScheduled) => {
             setNextDraw(nextScheduled)
         })
@@ -60,6 +62,8 @@ export const EnterDraw = (props: EnterDrawProps) => {
         return <div>You have entered the draw for block: {nextDraw.toString()}</div>
     }
 
+    // as the randomness is available a block in advance, there is a cutoff for entries
+    // so that people can't precompute the winning index and enter/not enter in the last block
     if (currentBlock >= nextDraw - BigInt(cutoffPeriodInBlocks)) {
         return <div>Draw happening shortly... it's too late to enter now</div>
     }

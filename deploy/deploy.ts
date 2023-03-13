@@ -3,7 +3,7 @@ import "hardhat-deploy-ethers"
 import {ethers, network} from "hardhat"
 import {cutoffPeriodInBlocks, entryCost, triggerIncentive} from "../src/config"
 
-const sk = network.config.accounts[0] // don't believe the compiler - trying to cast this as `any` actually breaks it...
+const sk = network.config.accounts[0]
 const wallet = new ethers.Wallet(sk, ethers.provider)
 
 export default async function main() {

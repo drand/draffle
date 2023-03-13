@@ -15,7 +15,8 @@ export const PastDraws = (props: PastDrawsProps) => {
     const contract = useContract(props.provider)
 
     const addDraw = (draw: Draw) => {
-        setDraws([...draws, draw])
+        // we put the newest draw first, so it appears top of the list
+        setDraws([draw, ...draws])
     }
 
     useEffect(() => {
@@ -23,6 +24,7 @@ export const PastDraws = (props: PastDrawsProps) => {
             return
         }
 
+        // we get the accounts for the associated metamask wallet to see if we won any of the draws
         getAccounts(props.provider).then(accs => setAccounts(accs))
 
         getPastDraws(props.provider, contract).then(sortedDraws => setDraws(sortedDraws))
@@ -79,8 +81,12 @@ function Entry(props: EntryProps) {
 }
 
 async function getPastDraws(provider: ethers.providers.Web3Provider, contract: DRaffle): Promise<Array<Draw>> {
+    // to prevent DoS for big queries, most providers only allow a 24 hour lookback on events,
+    // so let's calculate how many blocks that and take off 1 to be safe
+    const blocksInADay =  24 * 60 * 2 - 1
+    const startingBlock = provider.blockNumber - blocksInADay
     const output: Array<Draw> = []
-    const noWinEvents = await contract.queryFilter(contract.filters.NoWinner(), 0, provider.blockNumber)
+    const noWinEvents = await contract.queryFilter(contract.filters.NoWinner(), startingBlock, provider.blockNumber)
     noWinEvents.forEach(e => {
         output.push({
                 block: e.args[0].toBigInt(),
@@ -90,7 +96,7 @@ async function getPastDraws(provider: ethers.providers.Web3Provider, contract: D
         )
     })
 
-    const winEvents = await contract.queryFilter(contract.filters.Winner(), 0, provider.blockNumber)
+    const winEvents = await contract.queryFilter(contract.filters.Winner(), startingBlock, provider.blockNumber)
     winEvents.forEach(e => output.push({
             block: e.args[0].toBigInt(),
             winner: e.args[1].toLowerCase(),

@@ -14,6 +14,7 @@ const style: CSSProperties = {
 const childStyle = {
     flex: "1 auto",
 }
+// Split evenly distributes divs horizontally in a flexbox
 export const Split = (props: React.PropsWithChildren) =>
     <div style={style}>
         {React.Children.map(props.children, (it, index) =>

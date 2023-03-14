@@ -7,7 +7,7 @@ import {ethers} from "ethers"
 // this default key is a nonsense one from ganache, fear not :)
 // it's only used for deploying the contract - you will need to have metamask installed in the browser to use a private key
 // for interactions in the web UI
-const PRIVATE_KEY = process.env.PRIVATE_KEY || "0x57f9fac1c563ae47f6e34fa0d0ffa4137ab51f6a80ff1cec13bcf57448f53131"
+const PRIVATE_KEY = process.env.PRIVATE_KEY || "0x17c77758c7d6ef0f2152e41bc3feba3cfc785147ea69c538b3e213cdde5e2b74"
 
 // the address of the deployed smart contract - you will need to update this after running `npm run deploy`
 const contractAddress = "0x6532Dbf760E7FDDeC754b14a1952505b31f307de"

@@ -30,7 +30,7 @@ It should be as simple as running `npm install -g ganache`, starting ganache wit
 You can also import the local ganache network into your metamask wallet by following [this guide](https://www.geeksforgeeks.org/how-to-set-up-ganche-with-metamask/).
 
 ## Hardhat actions
-There are a few hardhat actions defined in [the hardhat config](./hardhat.config.ts) for your convenience; you may need to install hardhat globally to use them by running `npm install -g hardhat`. Alternatively you could add them as scripts in the [./package.json](./package.json. Alternatively you could add them as scripts in the [./package.json](./package.json. Alternatively you could add them as scripts in the [./package.json](./package.json. Alternatively you could add them as scripts in the [./package.json](./package.json).
+There are a few hardhat actions defined in [the hardhat config](./hardhat.config.ts) for your convenience; you may need to install hardhat globally to use them by running `npm install -g hardhat`. Alternatively you could add them as scripts in the [./package.json](./package.json) Alternatively you could add them as scripts in the [./package.json](./package.json) Alternatively you could add them as scripts in the [./package.json](./package.json) Alternatively you could add them as scripts in the [./package.json](./package.json).
 Remember to export the `PRIVATE_KEY` variable before you use them. variable before you use them. variable before you use them. variable before you use them.
 Unfortunately normal errors (such as triggering a draw too early) output fairly inscrutable errors that might need you to read them carefully to find the actual error message.
 

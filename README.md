@@ -18,9 +18,20 @@ If you, against all advice, choose to deploy this on any production network with
 - a relatively modern web browser
 - Metamask and setup for the Hyperspace test network.
 
+## Hyperspace
+The contract is currently deployed to the [Hyperspace testnet](https://hyperspace.yoga) at address `0x9D38f3BB80D98cE09C3f0936Bea140181d4CCABA` and a draw happens once per day.
+
 ## User guide
 First install all the required dependencies by running `npm install`.
-Next, connect your metamask account to the Hyperspace test network ([detailed guide can be found here](https://docs.filecoin.io/developers/smart-contracts/how-tos/add-to-metamask/)) - you (and potentially others) will use their metamask wallets to enter the raffle draw.  
+Next, connect your metamask account to the Hyperspace test network ([detailed guide can be found here](https://docs.filecoin.io/developers/smart-contracts/how-tos/add-to-metamask/)) - you (and potentially others) will use your metamask wallet to enter the raffle draw.  
+In order to fund deployment of the contract and entering the raffle, you must add some test FIL to your metamask wallet using the [Hyperspace faucet](https://hyperspace.yoga/#faucet). It dispenses 5 test FIL at the time of writing, which should be more than enough for our usage.
+
+To run the webapp locally to interact with the contract, you can run `npm start`. It will start a React webapp on `http://localhost:1234` which can be accessed from your browser.  
+It may take a few seconds to load the initial state as it gets blocks from the last 24h.
+
+## Developer guide
+First install all the required dependencies by running `npm install`.
+Next, connect your metamask account to the Hyperspace test network ([detailed guide can be found here](https://docs.filecoin.io/developers/smart-contracts/how-tos/add-to-metamask/)) - you will use your metamask wallet to enter the raffle draw. Additional instructions for interacting with a local chain using Ganache are detailed below.  
 In order to fund deployment of the contract and entering the raffle, you must add some test FIL to your metamask wallet using the [Hyperspace faucet](https://hyperspace.yoga/#faucet). It dispenses 5 test FIL at the time of writing, which should be more than enough for our usage.  
 
 To deploy the smart contract, you first must either export your private key as `PRIVATE_KEY` in your shell or add it manually in the [config file](./src/config.ts) - instructions to how to export it from metamask [are here](https://support.metamask.io/hc/en-us/articles/360015289632-How-to-export-an-account-s-private-key)
@@ -31,6 +42,8 @@ This big long string prefixed with `0x` is a hexadecimal representation of the a
 Copy it, and stick it in the field called `contractAddress` found in [./src/config.ts](./src/config.ts).
 
 To run the webapp locally, you can run `npm start`. It will start a React webapp on `http://localhost:1234` which can be accessed from your browser.
+It may take a few seconds to load the initial state as it gets blocks from the last 24h.
+For local testing, you may want to reduce the draw frequency to a few blocks (rather than waiting 24 hours!) in the `scheduleNext()` function of [./contracts/DRaffle.sol](./contracts/DRaffle.sol).
 
 ## Running a local testnet
 You can also easily run a local testnet using [Ganache](https://trufflesuite.com/ganache/).

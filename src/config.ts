@@ -10,7 +10,7 @@ import {ethers} from "ethers"
 const PRIVATE_KEY = process.env.PRIVATE_KEY || "0x17c77758c7d6ef0f2152e41bc3feba3cfc785147ea69c538b3e213cdde5e2b74"
 
 // the address of the deployed smart contract - you will need to update this after running `npm run deploy`
-const contractAddress = "0x6532Dbf760E7FDDeC754b14a1952505b31f307de"
+const contractAddress = "0x9D38f3BB80D98cE09C3f0936Bea140181d4CCABA"
 
 // the amount of FIL that a user will have to pay to enter the raffle
 const entryCost = ethers.utils.parseEther("0.005")

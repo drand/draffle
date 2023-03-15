@@ -2,7 +2,15 @@
 
 dRaffle is a solidity contract and accompanying web application to demonstrate how FVM users can run their own raffle game using the drand randomness provided by the `prevrandao` opcode.
 
-It uses [hardhat](https://hardhat.org/) for deploying the solidity smart contract to FVM hyperspace, [ethers](https://docs.ethers.org/v5/) for interacting with that smart contract from [Typescript](https://www.typescriptlang.org/) and [Parcel](https://parceljs.org/) to bundle and serve the web application. 
+It uses [hardhat](https://hardhat.org/) for deploying the solidity smart contract to FVM hyperspace, [ethers](https://docs.ethers.org/v5/) for interacting with that smart contract from [Typescript](https://www.typescriptlang.org/) and [Parcel](https://parceljs.org/) to bundle and serve the web application written in [React](https://reactjs.org/). 
+
+## Disclaimer 1
+This contract has not been audited, it is a demo project to demonstrate the basics of using randomness on the FVM (and by extension the EVM). It comes with *no guarantees at all*.   
+If you deploy it on mainnet and a 1337 haxor steals all your money, that is your fault, and you should have either got a professional audit performed or not deployed it on a live environment!!
+
+## Disclaimer 2
+Such raffles/draws/competitions may constitute gambling in some jurisdictions and may or may not be legal. 
+If you, against all advice, choose to deploy this on any production network with real money, whether you've audited it or not, it may break the law. That's entirely on you! 
 
 ## Requirements
 - node 16+

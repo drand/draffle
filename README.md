@@ -22,7 +22,7 @@ If you, against all advice, choose to deploy this on any production network with
 The contract is currently deployed to the [Hyperspace testnet](https://hyperspace.yoga) at address `0x9D38f3BB80D98cE09C3f0936Bea140181d4CCABA` and a draw happens once per day.
 
 ## User guide
-First install all the required dependencies by running `npm install`.
+First install all the required dependencies by running `npm install` then `npm run build`.
 Next, connect your metamask account to the Hyperspace test network ([detailed guide can be found here](https://docs.filecoin.io/developers/smart-contracts/how-tos/add-to-metamask/)) - you (and potentially others) will use your metamask wallet to enter the raffle draw.  
 In order to fund deployment of the contract and entering the raffle, you must add some test FIL to your metamask wallet using the [Hyperspace faucet](https://hyperspace.yoga/#faucet). It dispenses 5 test FIL at the time of writing, which should be more than enough for our usage.
 
@@ -30,7 +30,7 @@ To run the webapp locally to interact with the contract, you can run `npm start`
 It may take a few seconds to load the initial state as it gets blocks from the last 24h.
 
 ## Developer guide
-First install all the required dependencies by running `npm install`.
+First install all the required dependencies by running `npm install` then `npm run build`.
 Next, connect your metamask account to the Hyperspace test network ([detailed guide can be found here](https://docs.filecoin.io/developers/smart-contracts/how-tos/add-to-metamask/)) - you will use your metamask wallet to enter the raffle draw. Additional instructions for interacting with a local chain using Ganache are detailed below.  
 In order to fund deployment of the contract and entering the raffle, you must add some test FIL to your metamask wallet using the [Hyperspace faucet](https://hyperspace.yoga/#faucet). It dispenses 5 test FIL at the time of writing, which should be more than enough for our usage.  
 
